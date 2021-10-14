@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <button onclick="addTable()">create</button>
+    <script>
+         function addTable() {
+        var myTableDiv = document.getElementById("myDynamicTable");
+        var table = document.createElement('TABLE');
+        table.border='1';
+        table.id = "dataTable";
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+
+        for (var i=0; i<len; i++){
+            var tr = document.createElement('TR');
+            tr.className = "rowEditData";
+            tableBody.appendChild(tr);
+
+            for (var j=0; j<6; j++){
+                var countyName = errorTableData['CountyName'][i];
+                var stateName = errorTableData['StateName'][i];
+                var td = document.createElement('TD');
+                td.className = "mdl-data-table__cell--non-numeric";
+                td.appendChild(document.createTextNode(countyName));
+                td.appendChild(document.createTextNode(stateName));
+                tr.appendChild(td);
+            }
+        }
+        myTableDiv.appendChild(table);
+    }
+    </script>
+</body>
+</html>

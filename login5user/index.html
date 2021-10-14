@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login5user</title>
+</head>
+<body>
+    <script>
+        var users = [
+            [
+             username = 'vicky',
+             password = 123
+            ],
+            [
+             username = 'ram',
+             password = 1234
+            ]
+        ];
+        var name = 'vicky';
+        var pass = 123;
+      users.forEach(myfunction);
+
+      function myfunction(index){
+            if(username==name && password==pass){
+                  console.log('success login')
+            }else{
+                console.log('error');
+            }
+      }
+
+       
+    </script>
+</body>
+</html>

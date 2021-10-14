@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js</title>
+</head>
+<body>
+    <input type="text" id="red">
+    <input type="text" id="blue">
+    <p id="total"></p>
+    <button onclick="add()">add</button>
+    <button onclick="sub()">sub</button>
+    <button onclick="mul()">mul</button>
+    <button onclick="div()">div</button>
+    <button onclick="exp()">exp</button>
+    <button onclick="mod()">mod</button>
+  <script>
+        function add(){
+            var a = document.getElementById('red');
+            var b = document.getElementById('blue');
+            var sum = a + b;
+            document.getElementById('total').innerHTML = sum;
+        }
+        function sub(){
+            var a = parseInt(document.getElementById('red').value);
+            var b = parseInt(document.getElementById('blue').value);
+            var sum = a - b;
+            document.getElementById('total').innerHTML = sum;
+        }
+        function mul(){
+            var a = parseInt(document.getElementById('red').value);
+            var b = parseInt(document.getElementById('blue').value);
+            var sum = a * b;
+            document.getElementById('total').innerHTML = sum;
+        }
+        function div(){
+            var a = parseInt(document.getElementById('red').value);
+            var b = parseInt(document.getElementById('blue').value);
+            var sum = a / b;
+            document.getElementById('total').innerHTML = sum;
+        } 
+        function exp(){
+            var a = parseInt(document.getElementById('red').value);
+            var b = parseInt(document.getElementById('blue').value);
+            var sum = a ** b;
+            document.getElementById('total').innerHTML = sum;
+        }
+        function mod(){
+            var a = parseInt(document.getElementById('red').value);
+            var b = parseInt(document.getElementById('blue').value);
+            var sum = a % b;
+            document.getElementById('total').innerHTML = sum;
+        }
+    </script>
+</body>
+</html>

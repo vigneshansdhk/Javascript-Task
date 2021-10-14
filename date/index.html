@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <input type="date" name="" id="red">
+    <button onclick="add()">click</button>
+    <p id="last"></p>
+    
+    <script>
+        //    function add(){
+        //    var date = new Date(document.getElementById('view').value);
+        //    var view = new Date();
+        //    var total = date - view;
+        //    var milliseconds = total;
+        //    var second = 1000;
+        //    var minute = second*60;
+        //    var hour = minute*60;
+        //    var day = hour*24;
+        //    var year = day*365;
+        //    var years = Math.round(milliseconds/year);
+        //    var months = years*12;
+        //    var days = years*365;
+        //    var hours = Math.round(milliseconds/hour);
+        //    var seconds = Math.round(milliseconds/second);
+        //    var end = + years +<br/>
+        //    + months +<br/>
+        //    +days+<br/>
+        //    +hours+ <br/>
+        //    +seconds+<br/>
+        //    document.getElementById('last').innerHTML = end;
+        //    }
+
+      
+        var DOB = 'March 9 2001';
+        var olddate = Date.parse(DOB);
+        var newdate = Date.now();
+        var ageInMilliseconds = olddate-newdate;
+        var milliseconds = ageInMilliseconds;
+        var second = 1000;
+        var minute = second*60;
+        var hour = minute*60;
+        var day = hour*24;
+        var month = day*30; 
+        var year = day*365;
+        var years = Math.round(milliseconds/year);
+        var months = years*12;
+        var days = years*365;
+        var hours = Math.round(milliseconds/hour);
+        var seconds = Math.round(milliseconds/second);
+
+        function add(){
+        var message = "Age in Years : "+years+
+       "</br>Age in Months : "+months+
+       "</br>Age in Days : "+days+
+       "</br>Age in Hours : "+hours+
+       "</br>Age in Seconds : "+seconds+
+       "</br>Age in Milliseconds : "+milliseconds;
+       document.getElementById('last').innerHTML = message;
+}
+
+ </script>
+</body>
+</html>

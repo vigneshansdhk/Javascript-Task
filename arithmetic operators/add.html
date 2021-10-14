@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="blue">
+     <input type="text" id="green">
+      <button onclick="add()">add</button>
+     <h1 id="red"></h1>
+    <script>
+        function add(){
+            var a = document.getElementById('blue').value;
+            var b = document.getElementById('green').value;
+            var c = a + b;
+            document.getElementById('red').innerHTML = c;
+        }
+    </script>
+</body>
+</html>

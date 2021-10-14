@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="stop()" id="red" style="width: 200px; padding: 20px; margin-left: 500px;">start</button>
+    </div>
+    <br>
+    <div>
+        <button onclick="end()" id="blue" style="width: 200px; padding: 20px; margin-left: 500px;">start</button>
+    </div>
+    <script>
+        var first= setInterval(add,1000);
+         function add(){
+           var d = new Date();
+           var t = d.toLocaleTimeString();
+           document.getElementById('blue').innerHTML= t; 
+         }
+          function stop(){
+              clearTimeout(second)
+          }
+          
+        var second = setInterval(sub,1000);
+        function sub(){
+           var d = new Date();
+           var t = d.toLocaleTimeString();
+           document.getElementById('red').innerHTML= t;
+        }
+        function end(){
+              clearTimeout(first)
+          }
+
+        //   var first= setInterval(sub,1000);
+        //  function sub(){
+        //    var d = new Date();
+        //    var t = d.toLocaleTimeString();
+        //    document.getElementById('red').innerHTML= t; 
+        //  }
+        //   function stop(){
+        //       clearTimeout(first)
+        //   }
+          
+        // var second = setInterval(add,1000);
+        // function add(){
+         
+        //    var d = new Date();
+        //    var t = d.toLocaleTimeString();
+        //    document.getElementById('blue').innerHTML= t;
+        // }
+        // function end(){
+        //       clearTimeout(second)
+        // }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

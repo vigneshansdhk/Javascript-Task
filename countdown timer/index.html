@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <button onclick="count()">Timer</button>
+    <p id="on"></p>
+    <script>
+        function count(){
+            var start = 10;
+            setInterval(function(){
+            start--;
+            if(start >= 0){
+            document.getElementById('on').innerHTML= start;
+            //  document.write(start);
+            }
+            }, 1000);
+        }
+    </script>
+      <!-- <button onclick="c()">Timer</button>
+    <script>
+        function c(){
+            var s = 20;
+            setInterval(function (){
+                s--;
+                if(s>=0){
+                    console.log(s);
+                }
+            },1000);
+        }
+    </script> -->
+</body>
+</html>

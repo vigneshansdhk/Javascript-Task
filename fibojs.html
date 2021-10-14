@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="get">
+    <button onclick="start()">click</button>
+    <script>
+        function start(){
+         var num = document.getElementById('get').value;
+         var num1 = 0;
+         var num2 = 1; 
+         console.log( num1);
+         console.log( num2);
+         for(i=0;i<=num;i++){
+            var num3 = num1 + num2;
+            if(num3 <= num){
+            console.log(num3);
+            }
+            num1 = num2;
+            num2 = num3;
+             }
+         }
+    </script>
+</body>
+</html>

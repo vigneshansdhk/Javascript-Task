@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigneshan</title>
+</head>
+<body>
+    <input type="text"  id="get">
+    <button onclick="sum()">click</button>
+    <script>
+        function sum(){
+            var getvalue = document.getElementById('get').value;
+             for(i=0;i<getvalue.length;i++){
+                 var passvalue = getvalue[i].reduce(function (a, b) {
+                 return a + b;
+                 }, 0);
+                 console.log(passvalue);
+             }
+        }
+    </script>
+</body>
+</html>

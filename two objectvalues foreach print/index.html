@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <script>
+
+           var car = [
+               {
+                   name : 'vignesh',
+                   age  : 20 ,
+               },
+               {
+                   name: 'prabu',
+                   age : 18,
+               }
+           ]
+
+            car.forEach(function (value){
+                var total = value.age;
+                if(total == value.name){
+                    console.log("name===>"+ value.name);
+                }else if(total == value.age){
+                    console.log("age===>"+ value.age);
+                }else{
+                    console.log("error");
+                }
+            })
+       </script>
+</body>
+</html>

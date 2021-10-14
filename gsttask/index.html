@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="o_amount">
+    <input type="number" id="gst">
+    <button type="submit" onclick="addgst()">click</button>
+    <h2 id="red"></h2>
+    <script>
+      function addgst(){
+          var amount = parseInt(document.getElementById('o_amount').value);
+          var value = parseInt(document.getElementById('gst').value);
+          var gst = (amount * value)/100;
+          var total =  amount + gst; 
+          document.getElementById('red').innerHTML = total;
+         }
+
+        //   function percentage(){
+        //     var amount = parseint(document.getElementById('o_amount').value);
+        //   var value = parseint(document.getElementById('gst').value);
+        //   var per = (amount + value)/100;
+        //    document.getElementById('red').innerHTML = per;
+              
+        //   }
+    </script>
+</body>
+</html>

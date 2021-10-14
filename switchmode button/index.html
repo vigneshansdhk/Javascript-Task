@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="add()" id="red" style="width: 200px; padding: 20px; margin-left: 500px;">start</button>
+    </div>
+    <br>
+    <div>
+        <button onclick="sub()" id="blue" style="width: 200px; padding: 20px; margin-left: 500px;">start</button>
+    </div>
+    <script>
+        // function add(){
+        //     document.getElementById('red').innerHTML = 'div2';
+        //     document.getElementById('blue').innerHTML = 'div1';
+        //  }
+        //  function sub(){
+        //     document.getElementById('blue').innerHTML = 'div2';
+        //     document.getElementById('red').innerHTML = 'div1';
+        //  }
+      
+//         function add(){
+//             var first=  setInterval(add,1000);
+//           var d = new Date();
+//            var t = d.toLocaleTimeString();
+//            document.getElementById('blue').innerHTML= t;
+//    }
+//      function stop(){
+//          clearTimeout(first);
+//      }
+    // var first=  setInterval(add,1000);
+    function add(){
+          var d = new Date();
+           var t = d.toLocaleTimeString();
+           document.getElementById('blue').innerHTML= t; 
+
+        }
+    //  function stop(){
+        //  clearTimeout(first);
+    //    clearInterval(add)
+    //  }
+        // function sub(){
+       
+        //     setInterval(function(){
+        //     var d = new Date();
+        //     var t = d.toLocaleTimeString();
+        //     document.getElementById('red').innerHTML= t;
+        //     }, 1000);
+        // }
+        // var second=  setInterval(sub,1000);
+        function sub(){
+           var d = new Date();
+           var t = d.toLocaleTimeString();
+           document.getElementById('red').innerHTML= t;
+
+        }
+    //     function end(){
+    //      clearTimeout(sub);
+    //  }
+    //  var second=  setInterval(sub,1000);
+    //     function sub(){
+    //        var d = new Date();
+    //        var t = d.toLocaleTimeString();
+    //        document.getElementById('red').innerHTML= t;
+
+    //     }
+    //     function end(){
+    //      clearTimeout(second);
+    //  }
+    //  var first=  setInterval(add,1000);
+    // function add(){
+    //       var d = new Date();
+    //        var t = d.toLocaleTimeString();
+    //        document.getElementById('blue').innerHTML= t; 
+
+    //     }
+    //  function stop(){
+    //      clearTimeout(first);
+    //  }
+
+     var names = ['vicky','ram'];
+     console.log(names[0]);
+    </script>
+</body>
+</html>

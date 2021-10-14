@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Table</title>
+</head>
+<body>
+ 
+  
+<table class="table" id="Table">
+  <button type="button" class="btn btn-success float-right" onclick="addRow()"><i class="fa fa-plus"></i></button>
+   
+    <thead class="thead-light table-bordered">
+      <tr>
+        <div class="row">
+          <th scope="col-auto">s.no</th>
+            <th class="col-auto text-center">product name</th>
+              <th class="col-auto text-center">Rate</th>
+                <th class="col-auto text-center">Tax percentage </th>
+              <th class="col-auto text-center">Quantity</th>
+            <th class="col-auto text-center">Tax amount</th>
+          <th class="col-auto text-center">Taxable amount</th>
+        <th class="col-auto text-center">Button</th>
+      </div>
+    </tr>
+  </thead>
+    <tbody id="myTable">
+      <div class="container-fluid align-center">  
+        <tr class="order">
+          <td> 1 </td>
+        <td>
+      <select class="form-control text-center"  aria-placeholder="product" id="select" onchange="changeValue(this)" >
+      <option value="">choose..</option>
+      </select>
+      </td>
+        <td>
+            <input type="text" size="5" class="form-control text-center" id="rate" placeholder="rate">
+        </td>
+  
+        <td>
+            <input type="text" size="5" class="form-control text-center"id="percentage" placeholder="tax percentage">
+        </td>
+
+        <td>
+          <input type="text" size="5" class="form-control text-center" placeholder="qty" onblur="calculate(this)">
+        </td>
+
+        <td>
+          <input type="text" size="5" class="form-control text-center" placeholder="tax amount">
+        </td>
+
+        <td>
+          <input type="text" size="5" class="form-control text-center" placeholder="taxable amount">         
+        </td>
+
+        <td>
+           <button type="button"  class="btn btn-danger font-weight-bolder" onclick="deleteRow(this)"><i class="fa fa-minus"></i></button>
+        </td>
+     
+      </tr>
+    </tbody>
+  </table>
+</div>
+<tfoot>
+  <div class="float-right mr-5 text-secondary">
+    <span> Total Amount:</span>
+      <span id="total_amount"></span><br>
+       <span> Tax Amount:</span> 
+      <span id="tax_amount"></span><br> 
+     <span>Grand Total:</span>
+    <span id="grand_total"></span>
+  </div>
+</tfoot>
+
+<script>
+      
+   
+    function addRow()
+    {
+        var x=document.getElementById('Table');
+          
+        var NewRow = x.rows[1].cloneNode(true);
+        var len = x.rows.length;
+        NewRow.cells[0].innerHTML = len;
+        var inp1 =NewRow.cells[1].getElementsByTagName('select')[0];
+        inp1.id += len;
+        inp1.value = '';
+        
+        var inp2 = NewRow.cells[2].getElementsByTagName('input')[0];
+        inp2.id += len;
+        inp2.value = '';
+        
+        var  inp3 = NewRow.cells[3].getElementsByTagName('input')[0];
+        inp3.id +=len;  
+        inp3.value = '';
+       
+        var  inp4 = NewRow.cells[4].getElementsByTagName('input')[0];
+        inp4.id +=len;
+        inp4.value = '';
+        
+        var  inp5 = NewRow.cells[5].getElementsByTagName('input')[0];
+        inp5.id +=len;
+        inp5.value = '';
+       
+        var  inp6 = NewRow.cells[6].getElementsByTagName('input')[0];
+        inp6.id +=len;
+        inp6.value = '';
+    
+        x.appendChild(NewRow);
+
+    }
+        
+    function deleteRow(row){
+         var i=row.parentNode.parentNode.rowIndex;
+         document.getElementById('Table').deleteRow(i);
+        TotalValue();
+        del()
+    }
+
+    function del()
+{
+    var x=document.getElementById('POITable');
+    var c1=x.insertCell(0);
+    var c2=x.insertCell(1);
+    c1.innerHTML="NEW CELL1";
+    c2.innerHTML="NEW CELL2";
+}
+    
+    var options = [
+         [
+             value = "1",
+             Name  = "pencil Box",
+             Rate  = "50",
+             Tax_percentage = "30",
+         ],
+         [
+             value = "2",
+             Name  = "pen",
+             Rate  = "20",
+             TaxPercentage = "10",
+         ],
+         [
+             value = "3",
+             Name  = "scale",
+             Rate  = "40",
+             TaxPercentage = "20",
+         ],
+         [
+             value = "4",
+             Name  = "chair",
+             Rate  = "300",
+             TaxPercentage = "50",
+         ],
+         [
+             value = "5",
+             Name  = "woodenBed",
+             Rate  = "5000",
+             TaxPercentage = "200",
+         ],
+         
+     ];
+    
+    
+    
+    for (i = 0; i < options.length; i++) {
+
+        var select = document.getElementById('select');  
+         
+        var option = options[i];
+        select.options.add(new Option(option[1],option[0]));
+    
+    } 
+
+    function changeValue(getvalue){
+
+          if(getvalue.value =='1'){
+            getvalue.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value=options[0][2]
+            getvalue.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value=options[0][3] 
+         } 
+          else if (getvalue.value =='2'){
+            getvalue.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value=options[1][2]
+            getvalue.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value=options[1][3]
+         }
+          else if (getvalue.value =='3'){
+            getvalue.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value=options[2][2]
+            getvalue.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value=options[2][3]
+        }
+         else if (getvalue.value =='4'){
+            getvalue.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value=options[3][2]
+            getvalue.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value=options[3][3]
+        }
+        else if (getvalue.value =='5'){
+            getvalue.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value=options[4][2]
+            getvalue.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value=options[4][3]
+        }
+    }
+    
+    function calculate(list) {
+         var rate = list.parentNode.parentNode.cells[2].getElementsByTagName('input')[0].value; 
+         var percentage = list.parentNode.parentNode.cells[3].getElementsByTagName('input')[0].value; 
+         var quantity = list.parentNode.parentNode.cells[4].getElementsByTagName('input')[0].value; 
+         
+         var value1 = rate*quantity*(percentage/100);
+         var value2 = rate*quantity;
+
+         list.parentNode.parentNode.cells[5].getElementsByTagName('input')[0].value=value1;
+         list.parentNode.parentNode.cells[6].getElementsByTagName('input')[0].value= value2;
+
+         TotalValue();
+       
+    }
+   
+    function  TotalValue () {
+          
+          var table = document.getElementById('Table');
+          var Amount = [];
+          var totalAmount = 0;
+
+        for (let i = 1 ; i <table.rows.length ; i++) {
+
+             Amount.push(table.rows[i].cells[6].getElementsByTagName('input')[0].value); 
+             var tot =  totalAmount = Amount.reduce(function(a,b){
+                return parseInt(a) + parseInt(b);
+             },0);
+             document.getElementById('total_amount').innerHTML=tot;
+          };
+   
+          var table = document.getElementById('Table');
+          var Tax = [];
+          var taxAmount = 0;
+
+        for (let i = 1 ; i <table.rows.length ; i++) {
+
+             Tax.push(table.rows[i].cells[5].getElementsByTagName('input')[0].value); 
+             var totTax = taxAmount = Tax.reduce(function(a,b){
+                return parseInt(a) + parseInt(b);
+             },0);
+             document.getElementById('tax_amount').innerHTML=totTax;
+          };
+        
+
+          var table = document.getElementById('Table');
+          var Amt = [];
+          var grandAmt = 0;
+
+        for (let i = 1 ; i <table.rows.length ; i++) {
+
+             Amt.push(table.rows[i].cells[5].getElementsByTagName('input')[0].value); 
+             Amt.push(table.rows[i].cells[6].getElementsByTagName('input')[0].value); 
+             var grandTot = grandAmt = Amt.reduce(function(a,b){
+                return parseInt(a) + parseInt(b);
+             },0);
+             document.getElementById('grand_total').innerHTML= grandTot;
+          };
+             
+        }
+          
+
+</script>
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>

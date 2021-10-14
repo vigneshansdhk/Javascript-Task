@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="mytext">
+    <input type="button" value="add" onclick="allow()">
+    <ul id="my">
+        
+    </ul>
+
+
+
+    <script>
+        function allow(){
+        var createli = document.createElement('LI');
+        var mytext = document.getElementById('mytext').value;
+        var textnode = document.createTextNode(mytext);
+        createli.appendChild(textnode); 
+        if(mytext === ""){
+            alert('please enter your task');
+        }else{
+            document.getElementById('my').appendChild(createli);
+        }
+        document.getElementById('mytext').value = "";
+        }
+    </script>
+</body>
+</html>
