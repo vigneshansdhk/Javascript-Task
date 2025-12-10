@@ -1,0 +1,13 @@
+
+
+// 1) Swapping two values for variables
+
+var a = 10;
+var b = 20;
+
+var [b,a] = [a,b];
+
+console.log(a);
+console.log(b);
+
+-----------------------   End -------------------------------
